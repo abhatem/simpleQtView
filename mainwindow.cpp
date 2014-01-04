@@ -17,7 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     lst.append("hi");
     sports = new QStringListModel(lst);
     ui->sportsView->setModel(sports);
-    lst.append("haha");
+    lst.append("haha"); // this get's appended after everything is loaded and the view won't get updated until you press the add button.
+                        // because of the updateSports slot that solves this issue
     connect(ui->add, SIGNAL(clicked()), this, SLOT(updateSports()));
 }
 
